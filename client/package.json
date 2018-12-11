@@ -4,7 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "start": "concurrently \"browser-sync start --server -w\" \" watchify lib/Client.ts -p tsify --debug -o build/bundle.js \" "
+        "start": "concurrently \" browser-sync start --server -w \" \" watchify lib/Client.ts -p tsify --debug -o build/bundle.js \" "
     },
     "devDependencies": {
         "browser-sync": "^2.26.3",
