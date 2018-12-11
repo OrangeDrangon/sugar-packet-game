@@ -1,0 +1,12 @@
+.disabled {
+    pointer-events: none;
+    background-color: red;
+}
+
+.selected {
+    background-color: green;
+}
+
+.removed {
+    display: none;
+}

@@ -22,7 +22,16 @@ io.on('connection', (socket) => {
 
         await socket.join(room);
 
-        io.to(room).emit('joinedRoom', {count: socketCount + 1, room});
+        io.to(room).emit('joinedRoom', { count: socketCount + 1, room });
+
+        if (socketCount + 1 === 2) {
+            io.to(room).emit('startGame');
+            socket.emit('turn');
+        }
+    });
+
+    socket.on('turn', (move) => {
+        socket.broadcast.to(move.room).emit('turn', move);
     });
 });
 
