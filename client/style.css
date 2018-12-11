@@ -1,12 +1,27 @@
 .disabled {
     pointer-events: none;
-    background-color: red;
+    background-image: url("assets/sugar-disabled.png") !important;
 }
 
 .selected {
     background-color: green;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .removed {
     display: none;
+}
+
+.sugar-packet {
+    width: 150px;
+    height: 225px;
+    border: none;
+    background-image: url("assets/sugar.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+    margin: 5px;
+} 
+
+.sugar-packet:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
