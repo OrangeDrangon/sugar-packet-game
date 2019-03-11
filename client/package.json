@@ -4,19 +4,13 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "start": "concurrently \" browser-sync start --no-ghost-mode --server -w \" \" watchify lib/Client.ts -p tsify --debug -o build/bundle.js \" "
     },
     "devDependencies": {
-        "browser-sync": "^2.26.3",
-        "browserify": "^16.2.3",
-        "concurrently": "^4.1.0",
-        "tsify": "^4.0.1",
+        "@types/socket.io-client": "^1.4.32",
         "tslint": "^5.11.0",
-        "typescript": "^3.2.2",
-        "watchify": "^3.11.0"
+        "typescript": "^3.2.2"
     },
     "dependencies": {
-        "@types/socket.io-client": "^1.4.32",
         "socket.io-client": "^2.2.0"
     }
 }
