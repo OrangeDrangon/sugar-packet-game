@@ -1,9 +1,9 @@
-export interface Details {
+export interface IDetails {
     count: number;
     room: string;
 }
 
-export interface Move {
+export interface IMove {
     removed: string[];
     room: string;
 }

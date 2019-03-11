@@ -1,5 +1,6 @@
 import io from 'socket.io-client';
-import { Details, Move } from './types';
+
+import { IDetails, IMove } from './types';
 
 window.onload = () => {
   const socket = io('http://10.241.16.185:5000');
@@ -24,7 +25,7 @@ window.onload = () => {
 
   let myTurn = false;
 
-  socket.on('joinedRoom', (details: Details) => {
+  socket.on('joinedRoom', (details: IDetails) => {
     const div = document.getElementById('playerCount') || document.createElement('div');
     div.textContent = `${details.count} / 2 - Players Joined`;
     div.id = 'playerCount';
@@ -120,7 +121,7 @@ window.onload = () => {
     document.body.appendChild(submit);
   });
 
-  socket.on('turn', (move: undefined | Move) => {
+  socket.on('turn', (move: undefined | IMove) => {
     myTurn = true;
     removeDisabled(document.getElementsByClassName('row1'));
     removeDisabled(document.getElementsByClassName('row2'));
