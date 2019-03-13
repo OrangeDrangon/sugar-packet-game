@@ -4,10 +4,12 @@ export interface IDetails {
 }
 
 export interface IMove {
-  removed: string[];
+  rowIndex: number;
+  packetsRemoved: number[];
   room: string;
 }
 
 export interface IRow {
   length: number;
+  room: string;
 }

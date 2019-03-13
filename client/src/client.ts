@@ -9,6 +9,7 @@ window.onload = () => {
 
   const input = document.getElementById('room') as HTMLInputElement;
   const join = document.getElementById('join') as HTMLButtonElement;
+
   if (input !== null && join !== null) {
     join.onclick = (): void => {
       const room = input.value;
@@ -24,13 +25,14 @@ window.onload = () => {
     });
 
     socket.on('startGame', (rows: IRow[]) => {
-      game = new Game(rows);
+      game = new Game(rows, rows[0].room, socket);
     });
 
     socket.on('turn', (move: IMove | undefined) => {
       if (move) {
-
+        game.applyMove(move);
       }
+      game.enableRows();
     });
   }
 };

@@ -36,9 +36,11 @@ io.on('connection', (socket) => {
       const rows: IRow[] = [
         {
           length: 3,
+          room: details.room,
         },
         {
           length: 5,
+          room: details.room,
         },
       ];
       io.to(room).emit('startGame', rows);

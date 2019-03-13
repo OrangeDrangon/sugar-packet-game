@@ -2,11 +2,13 @@ import { Game } from './game';
 
 export class Row {
   public id: number;
+  public selected: number[];
+
   private length: number;
   private parent: HTMLDivElement;
   private row: HTMLDivElement;
   private packets: HTMLDivElement[];
-  private selected: number[];
+
   public constructor(id: number, length: number,
                      parentElement: HTMLDivElement, game: Game) {
     this.id = id;
@@ -34,6 +36,7 @@ export class Row {
           if (this.selected.length === 0) {
             game.enableRows();
           }
+
           return;
         }
 
@@ -53,8 +56,10 @@ export class Row {
   }
 
   public disable() {
-    for (const packet of this.packets) {
+    for (let index = 0; index < this.packets.length; index += 1) {
+      const packet = this.packets[index];
       packet.classList.add('disabled');
+      this.unselect(index);
     }
   }
 
@@ -82,7 +87,7 @@ export class Row {
 
   public deletePackets(indexs: number[]) {
     for (const index of indexs) {
-
+      this.packets[index].remove();
     }
   }
 }
