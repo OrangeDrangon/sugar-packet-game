@@ -1,41 +1,36 @@
 import socketIoClient from 'socket.io-client';
 
 import { IDetails, IMove, IRow } from './types';
+import { Game } from './game';
 
 window.onload = () => {
   const socket = socketIoClient('http://localhost:5000');
+  let game: Game;
 
-  socket.on('joinedRoom', () => {
-  });
-
-  const createRow = (row: IRow) => {
-    const rowsElm = document.getElementById('rows');
-    if (rowsElm !== null) {
-      const rowElm = document.createElement('div');
-      for (let i = 0; i < row.length; i += 1) {
-        const packet = document.createElement('div');
-        packet.classList.add('sugar-packet');
-        rowElm.appendChild(packet);
+  const input = document.getElementById('room') as HTMLInputElement;
+  const join = document.getElementById('join') as HTMLButtonElement;
+  if (input !== null && join !== null) {
+    join.onclick = (): void => {
+      const room = input.value;
+      if (room.length < 3) {
+        alert('Must have a room name greater than or equal to 3 chars');
+        return;
       }
-      rowsElm.appendChild(rowElm);
-    } else {
-      throw new Error('Rows element not found!');
-    }
-  };
+      socket.emit('roomJoin', room);
+    };
 
-  const startGame = (rows: IRow[]) => {
-    for (const row of rows) {
-      createRow(row);
-    }
-  };
+    socket.on('joinedRoom', (details: IDetails) => {
+      console.log(details);
+    });
 
-  socket.on('startGame', (rows: IRow[]) => {
-    startGame(rows);
-  });
+    socket.on('startGame', (rows: IRow[]) => {
+      game = new Game(rows);
+    });
 
-  socket.on('turn', (move: IMove | undefined) => {
-    if (move) {
+    socket.on('turn', (move: IMove | undefined) => {
+      if (move) {
 
-    }
-  });
+      }
+    });
+  }
 };

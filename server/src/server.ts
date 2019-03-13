@@ -33,7 +33,14 @@ io.on('connection', (socket) => {
 
     io.to(room).emit('joinedRoom', details);
     if (socketCount + 1 === 2) {
-      const rows: IRow[] = [];
+      const rows: IRow[] = [
+        {
+          length: 3,
+        },
+        {
+          length: 5,
+        },
+      ];
       io.to(room).emit('startGame', rows);
       socket.emit('turn');
     }

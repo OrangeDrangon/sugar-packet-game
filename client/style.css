@@ -8,8 +8,14 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.removed {
-    display: none;
+.rows {
+  display: flex;
+  flex-flow: column;
+}
+
+.row {
+  display: flex;
+  flex-flow: row;
 }
 
 .sugar-packet {
@@ -18,9 +24,9 @@
     border: none;
     background-image: url("assets/sugar.png");
     background-repeat: no-repeat;
-    background-position: center; 
+    background-position: center;
     margin: 5px;
-} 
+}
 
 .sugar-packet:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
