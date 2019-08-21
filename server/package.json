@@ -8,7 +8,7 @@
     "@types/node": "^11.11.3",
     "@types/socket.io": "^2.1.2",
     "source-map-support": "^0.5.11",
-    "tslint": "^5.14.0",
+    "tslint": "^5.19.0",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.3.3333"
   },
