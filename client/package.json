@@ -10,7 +10,7 @@
     "tslint-config-airbnb": "^5.11.2",
     "typescript": "^3.2.2",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^4.3.0"
   },
   "dependencies": {
     "socket.io-client": "^2.2.0"
