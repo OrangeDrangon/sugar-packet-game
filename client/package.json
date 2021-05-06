@@ -5,7 +5,7 @@
   "scripts": {},
   "devDependencies": {
     "@types/socket.io-client": "^1.4.33",
-    "ts-loader": "^5.3.3",
+    "ts-loader": "^9.1.2",
     "tslint": "^5.14.0",
     "tslint-config-airbnb": "^5.11.2",
     "typescript": "^3.2.2",
